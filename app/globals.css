@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+
+
+/* ini theme yang akan di gunkan di project ini */
+@theme inline {
+  /* Base Theme */
+  --color-icon: #3E3E3E;
+  --color-background: #312F30;
+  --color-card: #3B3B3B;
+  --color-text: #FFFFFF;
+
+  /* Accent Colors */
+  --color-accent-orange: #F4A261;
+  --color-accent-yellow: #F6C860;
+  --color-accent-green: #6ECB63;
+  --color-accent-red: #E76F51;
+
+  /* Soft Neutrals */
+  --color-soft-gray: #4A4A4A;
+  --color-soft-dark-gray: #2A2A2A;
+  --color-muted-brown: #5A4E4D;
+  --color-warm-gray: #6D6767;
+
+  /* Food Category Colors */
+  --color-chicken-brown: #C17F59;
+  --color-spicy-red: #D1495B;
+  --color-fresh-green: #7FB069;
+  --color-cream-beige: #F2E8CF;
+
+  /* Status Colors */
+  --color-success: #4CAF50;
+  --color-info: #2196F3;
+  --color-warning: #FFC107;
+  --color-error: #F44336;
+
+  /* Gradients */
+  --gradient-orange: linear-gradient(to right, #F4A261, #E76F51);
+  --gradient-green: linear-gradient(to right, #6ECB63, #2F955C);
+  --gradient-gold: linear-gradient(to right, #F6C860, #E0AA3E);
+
+  /* Fonts (existing) */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode — boleh kamu modifikasi */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-text: #ededed;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
