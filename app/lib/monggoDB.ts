@@ -1,17 +1,30 @@
-
 import mongoose from "mongoose";
 
+const MONGO_URI = process.env.MONGO_URI as string;
+
+if (!MONGO_URI) {
+  throw new Error("Please define the MONGO_URI environment variable");
+}
+
+// Cache koneksi supaya tidak reconnect setiap request
+let cached = global.mongoose as {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+};
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
 export async function connectDB() {
-  const url = "mongodb://localhost:27017/food_sme_app"
-  try {
-    if (mongoose.connection.readyState === 1) {
-      return mongoose.connection;
-    }
-
-    await mongoose.connect(process.env.MONGO_URI || url);
-    console.log("MongoDB Connected");
-  } catch (err) {
-    console.error("MongoDB Connection Error:", err);
+  if (cached.conn) {
+    return cached.conn;
   }
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGO_URI).then((mongoose) => mongoose);
+  }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 }

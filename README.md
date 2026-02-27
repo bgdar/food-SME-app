@@ -1,8 +1,8 @@
-# food SME app
+<h1 align="center">
+food SME app
+</h1>
 
 aplikasi untuk UMKM pada katagory makanan
-
-> Api di handle berdasarkan folder Raoute tersendiri di setiap folder Page atau di sub foldernya ( rencananya )
 
 ### Tech Stack
 
@@ -19,21 +19,34 @@ aplikasi untuk UMKM pada katagory makanan
 - `Tailwindcss` : untuk CSS framework
 - `HeroIcons` : icons yang di gunakan di project ini ( web : https://heroicons.com/ )
 - `mongoose` : Database Document ( NoSql ) , di sini langsung menggunakan **mongoose** agar ada (ODM) jadi tidak perlu native JSON
-- `react-google-map` : untuk Akses google map di folder google map ( command : pnpm add @react-google-maps/api ) 
+- `react-google-map` : untuk Akses google map di folder google map ( command : pnpm add @react-google-maps/api )
 
+### Tools
 
-### Tools 
 - **Google Comsole** : untuk managemenr Project seperti API dan lainya
-  [fodd SME app by google console](https://console.cloud.google.com/cloud-hub?project=food-sme-app) 
+  [fodd SME app by google console](https://console.cloud.google.com/cloud-hub?project=food-sme-app)
 
- 
+### App info
 
+- Api di handle berdasarkan folder Raoute tersendiri di setiap folder Page atau di sub foldernya ( rencananya )
+- ambil data dari database , gunakan server componen aja
+- signUp terima dan kirm data dalam bentuk JSon
+- signIn terima dan kirim data dalam bentuk Body + redirect + flashMessage
 
-### Main folder || route 
-- **map** :  untuk menampilkna lokasi **Toko** dan **User**  
-### Route 
+### Cookies
+
+> user atau admin menggunakan cookies untuk login dan kredinetial
+
+1. user : username ,
+2. admin : adminname
+
+### Main folder || route
+
+- **map** : untuk menampilkna lokasi **Toko** dan **User**
+
+### Route
+
 > semua route ada di folder route
-
 
 ### App Color
 
@@ -64,6 +77,3 @@ aplikasi untuk UMKM pada katagory makanan
 |                             | Error           | **#F44336**           | Kesalahan                  |
 
 > mulai dengan Package manager `pnpm` dan bisa menggunakan Package manaer lain juga
-
-
-

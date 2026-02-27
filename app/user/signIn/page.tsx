@@ -1,25 +1,29 @@
+import Link from "next/link";
 
-
-export default function Page() {
+export default function SignInUser() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#312F30] p-4">
       <div className="w-full max-w-md bg-[#3B3B3B] p-8 rounded-2xl shadow-xl text-white space-y-6">
         {/* Title */}
-        <h1 className="text-3xl font-bold text-center" style={{ color: '#F4A261' }}>
+        <h1
+          className="text-3xl font-bold text-center"
+          style={{ color: "#F4A261" }}
+        >
           Sign In
         </h1>
 
         {/* Form */}
-        <form className="space-y-5" method="post" action={"/route/user/signIn"}>
+        <form className="space-y-5" method="post" action={"/api/user/signIn"}>
           {/* Email */}
           <div>
             <label className="block mb-1 text-sm font-medium" htmlFor="email">
               Username
             </label>
             <input
-              id="email"
+              id="username"
+              name="username"
               type="text"
-              className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
+              className="w-full px-4 py-3 rounded-xl bg-[--color-soft-dark-gray] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
               placeholder="your name"
             />
           </div>
@@ -29,21 +33,26 @@ export default function Page() {
             </label>
             <input
               id="email"
+              name="email"
               type="email"
-              className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
+              className="w-full px-4 py-3 rounded-xl bg-[--color-soft-dark-gray] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
               placeholder="your@email.com"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block mb-1 text-sm font-medium" htmlFor="password">
+            <label
+              className="block mb-1 text-sm font-medium"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
               id="password"
+              name="password"
               type="password"
-              className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
+              className="w-full px-4 py-3 rounded-xl bg-[--color-soft-dark-gray] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#F4A261] text-white placeholder-gray-400"
               placeholder="••••••••"
             />
           </div>
@@ -52,7 +61,7 @@ export default function Page() {
           <button
             type="submit"
             className="w-full py-3 rounded-xl font-semibold text-black mt-4"
-            style={{ backgroundColor: '#F6C860' }}
+            style={{ backgroundColor: "#F6C860" }}
           >
             Sign In
           </button>
@@ -64,17 +73,17 @@ export default function Page() {
         {/* Google Login */}
         <button
           className="w-full py-3 rounded-xl flex items-center justify-center gap-2 font-medium"
-          style={{ backgroundColor: '#4A4A4A' }}
+          style={{ backgroundColor: "#4A4A4A" }}
         >
           <span>Login with Google</span>
         </button>
 
         {/* Footer */}
         <p className="text-center text-sm text-gray-300">
-          Don't have an account?{' '}
-          <a href="#" style={{ color: '#6ECB63' }} className="font-medium hover:underline">
+          Don't have an account?{" "}
+          <Link className="text-accent-green" href="/user/signUp">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

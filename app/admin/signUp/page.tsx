@@ -1,14 +1,15 @@
 "use client";
 
+import { TypeAdmin } from "@/app/_types/types";
 import { useState } from "react";
-import { TypeUser } from "@/app/_types/types";
-import Link from "next/link";
 
 export default function SignUp() {
-  const [form, setForm] = useState<TypeUser>({
+  const [form, setForm] = useState<TypeAdmin>({
     username: "",
     email: "",
     password: "",
+    createdA: new Date(),
+    updatedAt: new Date(),
   });
 
   const [message, setMessage] = useState<string>("");
@@ -18,14 +19,6 @@ export default function SignUp() {
       ...form,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const handleComfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (form.password !== e.target.value.trim()) {
-      setMessage("password anda tidak selaras");
-    } else {
-      setMessage("");
-    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -52,7 +45,10 @@ export default function SignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#312F30] p-4">
       <div className="w-full max-w-md bg-[#3B3B3B] p-8 rounded-2xl shadow-xl text-white space-y-6">
-        <h1 className="text-3xl font-bold text-center text-accent-green">
+        <h1
+          className="text-3xl font-bold text-center"
+          style={{ color: "#6ECB63" }}
+        >
           Create Account
         </h1>
 
@@ -65,7 +61,6 @@ export default function SignUp() {
               id="username"
               onChange={handleUpdateForm}
               name="username"
-              required
               type="text"
               className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#6ECB63] text-white placeholder-gray-400"
               placeholder="Your Name"
@@ -98,7 +93,6 @@ export default function SignUp() {
               id="password"
               type="password"
               name="password"
-              required
               onChange={handleUpdateForm}
               className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#6ECB63] text-white placeholder-gray-400"
               placeholder="••••••••"
@@ -116,7 +110,6 @@ export default function SignUp() {
             <input
               id="confirmPassword"
               type="password"
-              onChange={handleComfirmPassword}
               className="w-full px-4 py-3 rounded-xl bg-[#2A2A2A] border border-[#4A4A4A] focus:outline-none focus:ring-2 focus:ring-[#6ECB63] text-white placeholder-gray-400"
               placeholder="Confirm your password"
             />
@@ -150,12 +143,13 @@ export default function SignUp() {
         {/* Footer */}
         <p className="text-center text-sm text-gray-300">
           Already have an account?{" "}
-          <Link
-            href={"/user/signIn"}
-            className="font-medium hover:underline text-accent-orange "
+          <a
+            href="#"
+            style={{ color: "#F4A261" }}
+            className="font-medium hover:underline"
           >
             Sign In
-          </Link>
+          </a>
         </p>
       </div>
     </div>

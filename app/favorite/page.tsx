@@ -1,9 +1,9 @@
-'use client';
-import  { useState } from "react";
+"use client";
+import { useState } from "react";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
+import NavbarUser from "../components/navbarUser";
 
-import Navbar from "../components/navbar";
 // FavoriteFoodPage.jsx
 // React component that shows a "Netflix-like" horizontal content layout for favorite foods.
 // Uses Tailwind CSS utility classes. The color palette is embedded as CSS variables so you
@@ -12,7 +12,7 @@ import Navbar from "../components/navbar";
 export default function FavoriteFoodPage() {
   const [favorites, setFavorites] = useState(() => new Set([1, 3]));
 
-  const toggleFav = (id : number) => {
+  const toggleFav = (id: number) => {
     const copy = new Set(favorites);
     if (copy.has(id)) copy.delete(id);
     else copy.add(id);
@@ -33,9 +33,7 @@ export default function FavoriteFoodPage() {
   ];
 
   return (
-    <div
-      className="min-h-screen px-6 pb-12"
-         >
+    <div className="min-h-screen px-6 pb-12">
       <header className="flex  items-center justify-between py-6">
         <h1 className="text-2xl font-semibold text-icon">Favourite Foods</h1>
         <nav className="flex gap-3 items-center">
@@ -79,7 +77,11 @@ export default function FavoriteFoodPage() {
                     <button
                       onClick={() => toggleFav(item.id)}
                       className="absolute top-2 right-2 p-1 rounded-full bg-black/40 backdrop-blur"
-                      aria-label={favorites.has(item.id) ? "Remove favorite" : "Add favorite"}
+                      aria-label={
+                        favorites.has(item.id)
+                          ? "Remove favorite"
+                          : "Add favorite"
+                      }
                     >
                       {favorites.has(item.id) ? (
                         <HeartSolid className="h-5 w-5 text-accent-red" />
@@ -90,14 +92,22 @@ export default function FavoriteFoodPage() {
                   </div>
 
                   <div className="p-3">
-                    <h3 className="text-sm font-semibold text-icon">{item.title}</h3>
-                    <p className="text-xs mt-1 text-soft-gray">{item.description}</p>
+                    <h3 className="text-sm font-semibold text-icon">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs mt-1 text-soft-gray">
+                      {item.description}
+                    </p>
 
                     <div className="mt-3 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="inline-block text-xs px-2 py-0.5 rounded-full text-card bg-accent-yellow">{item.category}</span>
+                        <span className="inline-block text-xs px-2 py-0.5 rounded-full text-card bg-accent-yellow">
+                          {item.category}
+                        </span>
                       </div>
-                      <div className="text-xs font-medium text-icon">{item.price}</div>
+                      <div className="text-xs font-medium text-icon">
+                        {item.price}
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -107,8 +117,7 @@ export default function FavoriteFoodPage() {
         ))}
       </main>
 
-
-      <Navbar/>
+      <NavbarUser />
     </div>
   );
 }
@@ -152,4 +161,3 @@ const sampleFoods = [
       "https://images.unsplash.com/photo-1604908178321-3c4d5e6f7a8b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a2b3c4d5e6f7g8h",
   },
 ];
-

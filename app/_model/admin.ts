@@ -1,6 +1,5 @@
 import mongoose, { Model, model, models, Schema } from "mongoose";
-
-import { TypeUser, TypeAdress } from "../_types/types";
+import { TypeAdmin, TypeAdress } from "../_types/types";
 
 // Schema alamat
 const AddressSchema = new Schema<TypeAdress>(
@@ -16,18 +15,19 @@ const AddressSchema = new Schema<TypeAdress>(
   { timestamps: true },
 );
 
-const UserSchema = new Schema<TypeUser>(
+// Schema admin
+const AdminSchema = new Schema<TypeAdmin>(
   {
     username: { type: String, required: true },
     email: String,
     password: { type: String, required: true },
-    address: AddressSchema,
+    address: AddressSchema, // embed AddressSchema
   },
-  // otomatis membuat createdAt & updatedAt
-  { timestamps: true },
+  { timestamps: true }, // otomatis membuat createdAt & updatedAt
 );
 
-const User: Model<TypeUser> =
-  models.User || model<TypeUser>("User", UserSchema);
+// Model admin
+const Admin: Model<TypeAdmin> =
+  models.Admin || model<TypeAdmin>("Admin", AdminSchema);
 
-export default User;
+export default Admin;

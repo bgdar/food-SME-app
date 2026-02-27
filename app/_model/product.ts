@@ -1,22 +1,17 @@
-import mongoose from "mongoose";
+import { Model, models, model, Schema } from "mongoose";
+import { TypeProduct } from "../_types/types";
 
+const ProductSchema = new Schema<TypeProduct>(
+  {
+    product_name: String,
+    price: Number,
+    category: String,
+    description: String,
+    stock: Number, // stok barang
+  },
+  { timestamps: true },
+);
 
-
-
-const ProductSchema = new mongoose.Schema( {
-
-  product_name : String ,
-  price : Number, 
-  category : String ,
-  description : String, 
-  stock : Number , // stok barang 
-  
-  createdA : { type : Date , default : Date.now()},
-    updatedAt : { type : Date , default : Date.now()},
-
-}
-  ,{timestamps : true}
-
-)
-
-export default mongoose.models.Product || mongoose.model("User", ProductSchema);
+const Product: Model<TypeProduct> =
+  models.Product || model<TypeProduct>("Product", ProductSchema);
+export default Product;

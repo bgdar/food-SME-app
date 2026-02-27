@@ -1,7 +1,9 @@
-export default function Admin(){
+import NavbarAdmin from "../components/adminNavbar";
+
+export default function Admin() {
   return (
-  <>
-      <p>admin page</p>
-    </>
-  )
+    <div>
+      <NavbarAdmin />
+    </div>
+  );
 }

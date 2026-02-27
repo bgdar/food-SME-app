@@ -1,14 +1,13 @@
-// ini hamala untuk menampilkan Peta 
-import Navbar from "../components/navbar";
+// ini hamala untuk menampilkan Peta
+import NavbarUser from "../components/navbarUser";
 const Map = () => {
   return (
     <main>
-
       <p>Map</p>
 
-      <Navbar />
+      <NavbarUser />
     </main>
-  )
-}
+  );
+};
 
 export default Map;
